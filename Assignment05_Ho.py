@@ -6,8 +6,11 @@ Created on Sat Mar  2 10:19:25 2024
 @author: vivienneho
 """
 
-class BasicMathOperators:
+
+#This creates a class filled with math operator functions
+class BasicMathOperators: 
     
+   #This initializes the attributes of the object
     def __init__(self, firstname, lastname, num1, num2, operator, argument):
         self.firstname = firstname
         self.lastname = lastname
@@ -16,14 +19,16 @@ class BasicMathOperators:
         self.operator = operator
         self.argument = argument
         
-        
+    #This greets the user
     def greetUser(self):
         print("Greetings "+ self.firstname, " "+ self.lastname)
         
+    #This adds two numbers
     def addNum(self):
         summ = self.num1 +self.num2
         return summ
     
+    #This performs a certain operator based on object attributes
     def performOperator(self):
         if self.operator=="addition":
             return self.addNum()
@@ -34,19 +39,23 @@ class BasicMathOperators:
         if self.operator=="division":
             return self.num1/self.num2
             
+    #This calculates the square of an object
     def calculateSquare(self):
         return self.num1**2
     
+    #This finds the factorial of a number
     def factorial(self):
         fact = 1
         for i in range(1, self.num1+1):
             fact = fact*i
         return fact
         
+    #This will count starting at a specified number and going to another
     def counting(self):
         for i in range(self.num1, self.num2+1):
             print(i)
             
+    #This will calculate the hypotenuse of a right triangle
     def calculateHypotenuse(self):
         base = self.calculateSquare()
         perpendicular = self.calculateSquare()
@@ -54,20 +63,27 @@ class BasicMathOperators:
         hyp = hyp_squared**(1/2)
         return hyp
     
+    #This calculates the area of a rectangle
     def areaofRect(self):
         area = self.num1*self.num2
         return area
     
+    #This will calculate the power of a number to another number
     def powerNum(self):
         return self.num1**self.num2
     
+    #This returns what data type a variable is
     def argType(self):
         return type(self.argument)
     
  #============================================================================= 
     
 def main():
+    
     obj = BasicMathOperators("Vivienne", "Ho", 5, 20, "multiplication", 9)
+    obj.greetUser()
+    
+    #This allows the user to choose what they want to do
     function = int(input("""Enter the number that corresponds with what you want to do:
                          1. Add Numbers
                          2. Perform an operation
@@ -106,6 +122,8 @@ def main():
                                     if function ==9:
                                         print(obj.argType())
                                     else:
+                                        #If the user enters something other then numbers 1-9,
+                                        # it will make the user start again.
                                         print("Invalid selection. Please restart program.")
   #=============================================================================  
 
